@@ -1,0 +1,52 @@
+import type { eventWithTime, scrollCallback } from '@amplitude/rrweb-types';
+export declare function getViewportHeight(): number;
+export declare function getViewportWidth(): number;
+export type Mirror = {
+    getNode: (id: number) => Node | null;
+};
+export type RecordFunction = {
+    (options: {
+        emit: (event: eventWithTime) => void;
+        inlineStylesheet?: boolean;
+        hooks?: {
+            mouseInteraction?: any;
+            scroll?: scrollCallback;
+        };
+        maskAllInputs?: boolean;
+        maskTextClass?: string;
+        blockClass?: string;
+        blockSelector?: string;
+        maskInputFn?: (text: string, element: HTMLElement | null) => string;
+        maskTextFn?: (text: string, element: HTMLElement | null) => string;
+        maskAttributeFn?: (key: string, value: string, element: HTMLElement) => string;
+        maskTextSelector?: string;
+        checkoutEveryNms?: number;
+        recordCanvas?: boolean;
+        slimDOMOptions?: {
+            script?: boolean;
+            comment?: boolean;
+            headFavicon?: boolean;
+            headWhitespace?: boolean;
+            headMetaDescKeywords?: boolean;
+            headMetaSocial?: boolean;
+            headMetaRobots?: boolean;
+            headMetaHttpEquiv?: boolean;
+            headMetaAuthorship?: boolean;
+            headMetaVerification?: boolean;
+        };
+        errorHandler?: (error: unknown) => boolean;
+        plugins?: any[];
+        applyBackgroundColorToBlockedElements?: boolean;
+        /**
+         * When true (default), adoptedStyleSheets CSS rules are serialized inline in the full snapshot
+         * rather than emitted as separate incremental events that can be dropped in transit.
+         * Set to false to revert to the legacy incremental-event path if snapshot size is a concern.
+         */
+        captureAdoptedStyleSheets?: boolean;
+        recordCrossOriginIframes?: boolean;
+    }): (() => void) | undefined;
+    addCustomEvent: (eventName: string, eventData: any) => void;
+    takeFullSnapshot: (isCheckout?: boolean) => void;
+    mirror: Mirror;
+};
+//# sourceMappingURL=rrweb.d.ts.map
