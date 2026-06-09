@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rory's Analytics Demo</title>
+</head>
+  
+<script src="https://cdn.amplitude.com/script/YOUR_API_KEY.js"></script>
+<script> window.amplitude.init('YOUR_API_KEY'); </script>
+<script>
+document.getElementById("signup-btn")
+  .addEventListener("click", function() {
+  amplitude.track("Sign Up Clicked");
+});
+
+document.getElementById("demo-btn")
+  .addEventListener("click", function() {
+  amplitude.track("Request Demo Clicked");
+});
+
+</script>
+  
+<body>
+
+    <h1>Welcome to Rory's Analytics Demo</h1>
+
+    <p>A simple landing page for testing Amplitude analytics.</p>
+    <p>Please I need a job and I'd be glad to help you guys!</p>
+
+    <button id="signup-btn">Sign Up</button>
+
+    <button id="demo-btn">Request Demo</button>
+
+</body>
+</html>
